@@ -3,20 +3,20 @@
 // license that can be found in the LICENSE file.
 
 /*
-agorn is a wrapper around gorename for use with Acme.
+Rename is a wrapper around gorename for use with Acme.
 It renames the entity under the cursor.
 
 Usage:
-	agorn <name>
+	Rename <name>
 
 Example:
-	agorn Foo
+	Rename Foo
 renames the entity under the cursor with 'Foo'.
 
 gorename must be installed:
 	% go get golang.org/x/tools/cmd/gorename
 */
-package main
+package main // import "github.com/aoeu/acme/Rename"
 
 import (
 	"bufio"
