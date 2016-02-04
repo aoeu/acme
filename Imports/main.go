@@ -2,11 +2,11 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Acmego watches acme for .go files being written.
-// Each time a .go file is written, acmego checks whether the
+// Imports watches acme for .go files being written.
+// Each time a .go file is written, Imports checks whether the
 // import block needs adjustment. If so, it makes the changes
 // in the window body but does not write the file.
-package main
+package main // import "github.com/aoeu/acme/Imports"
 
 import (
 	"bytes"
@@ -23,7 +23,7 @@ import (
 	"9fans.net/go/acme"
 )
 
-var gofmt = flag.Bool("f", false, "run gofmt on the entire file after Put")
+var gofmt = flag.Bool("fmt", false, "run gofmt on the entire file after Put")
 
 func main() {
 	flag.Parse()
@@ -100,7 +100,7 @@ func reformat(id int, name string) {
 		return
 	}
 
-	f, err := ioutil.TempFile("", "acmego")
+	f, err := ioutil.TempFile("", "Imports")
 	if err != nil {
 		log.Print(err)
 		return
