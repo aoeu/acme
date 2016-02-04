@@ -12,7 +12,7 @@
 // with a suffix of /+watch. The window shows the execution of the given
 // command. Each time a file in that directory changes, Watch reexecutes
 // the command and updates the window.
-package main // import "9fans.net/go/acme/Watch"
+package main // import "github.com/aoeu/acme/Watch"
 
 import (
 	"flag"

@@ -1,6 +1,6 @@
 // Velour is an IRC client for the acme editor.
 
-package main
+package main // import "github.com/aoeu/acme/IRC"
 
 import (
 	"flag"
