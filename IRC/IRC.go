@@ -79,7 +79,7 @@ func getWin(target string) *win {
 
 func main() {
 	flag.Usage = func() {
-		os.Stdout.WriteString("usage: velour [options] <server>[:<port>]\n")
+		os.Stdout.WriteString("usage: IRC [options] <server>[:<port>]\n")
 		flag.PrintDefaults()
 		os.Stdout.WriteString("The utility program given by the -u flag will receive a nick as the first argument, and the content of a message on standard input.\n")
 	}
