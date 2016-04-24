@@ -51,6 +51,7 @@ func main() {
 	if len(os.Args) < 2 {
 		usage()
 	}
+	flag.Parse()
 	var err error
 	existingWindows, err = windowIDsByName()
 	if err != nil {
@@ -58,7 +59,8 @@ func main() {
 		os.Exit(1)
 	}
 	wg := &sync.WaitGroup{}
-	for _, a := range os.Args[1:] {
+	for _, a := range flag.Args() {
+		// TODO(aoeu): Filter arguments that are command-line flags implicitly added by git.
 		f, err := filepath.Abs(a)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Could not determine absolute path of %v : %v\n", a, err)
@@ -69,9 +71,12 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Could not open window in acme for %v : %v\n", f, err)
 			os.Exit(1)
 		}
+		fmt.Println("writing events for window", f)
+		wg.Add(1)
 		go writeEvents(w, wg)
 	}
 	wg.Wait()
+	fmt.Println("Done")
 }
 
 func windowIDsByName() (map[string]int, error) {
@@ -100,7 +105,6 @@ func open(filepath string) (w *acme.Win, err error) {
 }
 
 func writeEvents(w *acme.Win, wg *sync.WaitGroup) {
-	wg.Add(1)
 	defer wg.Done()
 	for {
 		select {
