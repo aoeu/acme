@@ -48,6 +48,7 @@ func usage() {
 var existingWindows map[string]int
 
 func main() {
+	flag.Usage = usage
 	if len(os.Args) < 2 {
 		usage()
 	}
