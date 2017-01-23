@@ -9,5 +9,5 @@ but please let me know if I've missed something.
 This repository exists so that all the programs I commonly use from the Acme text editor 
 can be installed easily and with a single command when using machines or user-accounts that are new to me.
 
-## Installation:
+## Installation
 `go get github.com/aoeu/acme/...`
