@@ -10,4 +10,4 @@ This repository exists so that all the programs I commonly use from the Acme tex
 can be installed easily and with a single command when using machines or user-accounts that are new to me.
 
 ## Installation
-`go get github.com/aoeu/acme/...`
+`./install.sh`
